@@ -38,7 +38,7 @@ export default function HandoverPage() {
   const [uploadedPhotos, setUploadedPhotos] = useState<FileRecord[]>([]);
 
   useEffect(() => {
-    setEmployees(employeeService.getEmployees());
+    employeeService.getEmployees().then(setEmployees);
     // Only show non-delivered serials for selection
     const allSerials = serialNumberService.getSerialNumbers();
     setSerials(allSerials.filter((s) => s.status !== "Delivered" && !s.deleted));

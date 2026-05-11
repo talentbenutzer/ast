@@ -36,8 +36,7 @@ export default function GeneratorPage() {
   const [previewYear, setPreviewYear] = useState("");
 
   useEffect(() => {
-    const emps = employeeService.getEmployees();
-    setEmployees(emps);
+    employeeService.getEmployees().then(setEmployees);
 
     const activeEmp = employeeService.getActiveEmployee();
     if (activeEmp) {
